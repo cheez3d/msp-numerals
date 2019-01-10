@@ -91,11 +91,12 @@ namespace Numerals
             finally_:
                 Console.WriteLine();
             }
+            textReader.Close();
 
-            
+
             if (null != textWriter)
             {
-                textWriter.Flush();
+                textWriter.Close();
                 Console.WriteLine("All conversions written to file.");
                 Console.WriteLine();
             }
