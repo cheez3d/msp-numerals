@@ -7,10 +7,12 @@ namespace Numerals
     class Numeral
     {
         private static readonly int RomanNumeralLimit = 3999;
-        private static readonly char[][] RomanNumeralLT;
+        private static readonly char[][] RomanNumeralLT; // lookup table for conversion
 
         static Numeral()
         {
+            // initialize lookup table
+
             RomanNumeralLT = new char[4][];
             
             RomanNumeralLT[0] = new char[2] { 'I', 'V' };
@@ -59,7 +61,7 @@ namespace Numerals
 
                 StringBuilder stringBuilder = new StringBuilder();
 
-                int digitCount = (int)Math.Floor(Math.Log10(Math.Abs(_number)) + 1); // number is never 0 here
+                int digitCount = (int)Math.Floor(Math.Log10(Math.Abs(_number)) + 1);
 
                 // traverse number by digit from left to rigth (MSD to LSD)
                 for (int digitIndex = digitCount-1; digitIndex >= 0; --digitIndex)
